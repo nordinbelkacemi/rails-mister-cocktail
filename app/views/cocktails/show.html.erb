@@ -2,4 +2,9 @@
   <div class="name">
     <%= @cocktail.name %>
   </div>
+  <div class="ingredients">
+    <% @cocktail.doses.each do |dose| %>
+      <li><%= "#{dose.description} of #{dose.ingredient.name}" %></li>
+    <% end %>
+  </div>
 </div>

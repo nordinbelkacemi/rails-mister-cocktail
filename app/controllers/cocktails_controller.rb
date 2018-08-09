@@ -8,10 +8,12 @@ class CocktailsController < ApplicationController
   end
 
   def new
+    @cocktail = Cocktail.new
   end
 
   def create
-    @cocktail = Cocktail.new(cocktail_params)
+    @cocktail = Cocktail.new
+    Cocktail.create(cocktail_params)
   end
 
   private

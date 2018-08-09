@@ -13,4 +13,6 @@ end
 
 (1..20).each { Cocktail.create(name: Faker::Science.scientist) }
 
-(1..20).each { Dose.create(description: "#{(rand * 100).round} ml" } 
+(1..150).each do
+  Dose.create(description: "#{(rand * 100).round} ml", ingredient_id: rand * 160, cocktail_id: rand * 20);
+end

@@ -2,6 +2,8 @@
   <div class="cocktail">
     <div class="name">
       <%= cocktail.name %>
+      <%= link_to 'See more', cocktail_path(cocktail.id), {class: 'see-more-btn'} %>
     </div>
   </div>
 <% end %>
+<%= link_to 'Add new cocktail', new_cocktail_path, {class: "add-btn"}%>
