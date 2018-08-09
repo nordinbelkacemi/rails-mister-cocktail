@@ -7,4 +7,5 @@
       <li><%= "#{dose.description} of #{dose.ingredient.name}" %></li>
     <% end %>
   </div>
+  <%= link_to "new dose", new_cocktail_dose_path(@cocktail), {class: 'add-dose-btn'} %>
 </div>
