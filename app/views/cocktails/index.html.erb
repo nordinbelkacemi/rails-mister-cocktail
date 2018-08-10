@@ -1,10 +1,16 @@
-<% @cocktails.each do |cocktail| %>
-  <div class="cocktail">
-    <div class="name">
-      <%= cocktail.name %>
-      <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fill %>
-      <%= link_to 'See more', cocktail_path(cocktail.id), {class: 'see-more-btn'} %>
-    </div>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="cocktail-card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= cl_image_path cocktail.photo %>')">
+          <div class="cocktail-name">
+            <%= cocktail.name %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
-<%= link_to 'Add new cocktail', new_cocktail_path, {class: "add-btn"}%>
+  <div class="container-h">
+    <%= link_to 'New cocktail', new_cocktail_path, {class: "add-btn"}%>
+  </div>
+</div>

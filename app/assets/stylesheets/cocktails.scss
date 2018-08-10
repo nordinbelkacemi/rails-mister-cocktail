@@ -1,13 +1,27 @@
 // Place all the styles related to the cocktails controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.cocktail {
-  margin-left: 20px;
-  padding: 10px;
-}
-
 .add-btn {
-  margin-left: 20px;
+  font-family: 'Muli', sans-serif;
+  text-decoration: none;
   padding: 10px;
   margin-bottom: 100px;
+}
+
+.cocktail-name {
+  font-family: 'Muli', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: white;
+}
+
+.cocktail-card:hover {
+  background-image: #a1c45a;
+  cursor: pointer;
+}
+
+.container-h {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }

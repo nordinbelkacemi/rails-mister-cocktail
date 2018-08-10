@@ -23,9 +23,21 @@ URLS = [
   "https://images.unsplash.com/photo-1444728399417-08d2aa39e6f4?ixlib=rb-0.3.5&s=fd45b3178c163c8b1994d703f8a425a9&auto=format&fit=crop&w=1500&q=80",
   "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-0.3.5&s=49bf50f8cb823c2fb0054028c77f55df&auto=format&fit=crop&w=1500&q=80",
   "https://images.unsplash.com/photo-1514534309681-d89b52131352?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=56f041db5138c8c4377028f14880f61c&auto=format&fit=crop&w=1500&q=80",
-  "https://images.unsplash.com/photo-1514534309681-d89b52131352?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=56f041db5138c8c4377028f14880f61c&auto=format&fit=crop&w=1500&q=80"
+  "https://images.unsplash.com/photo-1501594941583-afe28dd654b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0336ef6bb5fefb1ed7df0bbc3d19b5b&auto=format&fit=crop&w=1500&q=80"
 ]
 
+cocktails = []
+loop do
+  break if cocktails.count == 20
+  name = Faker::Science.scientist
+  if !cocktails.include?(name)
+    cocktails << name
+  end
+end
+
+Dose.destroy_all
+Ingredient.destroy_all
+Cocktail.destroy_all
 # ingredients
 menu = JSON.parse(open(URL).read)
 
@@ -36,9 +48,8 @@ menu["drinks"].each do |ingredient|
 end
 
 # cocktails
-(1..20).each_with_index do |cocktail, i|
-  Cocktail.create(name: Faker::Science.scientist, remote_photo_url: URLS[i])
-end
+cocktails.each_with_index {|cocktail, i| Cocktail.create(name: cocktails[i], remote_photo_url: URLS[i])}
+
 
 # doses
 (1..150).each do
