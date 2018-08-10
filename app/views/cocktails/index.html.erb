@@ -2,6 +2,7 @@
   <div class="cocktail">
     <div class="name">
       <%= cocktail.name %>
+      <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fill %>
       <%= link_to 'See more', cocktail_path(cocktail.id), {class: 'see-more-btn'} %>
     </div>
   </div>
