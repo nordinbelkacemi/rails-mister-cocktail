@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :doses
   end
 
+  delete "doses/:id", to: "doses#destroy", as: :dose
+
   # # show wall cocktails in the database
   # get 'cocktails', to: 'cocktails#index', as: 'cocktails'
   #

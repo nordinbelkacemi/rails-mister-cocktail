@@ -12,9 +12,12 @@ class CocktailsController < ApplicationController
   end
 
   def create
-    @cocktail = Cocktail.new
-    Cocktail.create(cocktail_params)
-    redirect_to cocktails_path
+    @cocktail = Cocktail.new(cocktail_params)
+    if @cocktail.save
+      redirect_to cocktail_path(@cocktail)
+    else
+      render :new
+    end
   end
 
   private
